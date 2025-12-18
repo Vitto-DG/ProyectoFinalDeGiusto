@@ -34,8 +34,6 @@ function iniciarRuleta(){
 
 };
 
-
-
   btnADarle.onclick = () => {
     contenedorGeneral.classList.add("oculto");
     cuentaRegresiva(() => {
@@ -51,6 +49,11 @@ function visibilidad(elemento, mostrar){
   elemento.classList.toggle("oculto", mostrar);
 }
 
+btnBasta.onclick = () => {
+  detenerRuleta();
+  btnBasta.classList.add("oculto");
+  contenedorGeneral.appendChild(btnADarle);
+};
 
 // =================================
 //      Detener Ruleta
@@ -64,10 +67,6 @@ function detenerRuleta(){
 
   visibilidad(btnBasta, false);
 
-  btnBasta.onclick = () => {
-  btnBasta.classList.add("oculto");
-    contenedorGeneral.appendChild(btnADarle);
-  };
 
   if(letrasUsadas.includes(letraActual)){
     if (mensaje) {
@@ -75,16 +74,20 @@ function detenerRuleta(){
       <h4>La letra ${letraActual} ya fue usada.</h4>
       <p> Presiona <strong>"A"</strong> nuevamente.</p>`;
     }
+      visibilidad(btnADarle, true)
       return;
     }
-
-    if(btnADarle) {
-      if(!document.getElementById("btn-aDarle")){
-        contenedorGeneral.appendChild(btnADarle);
-      }
-      btnADarle.classList.remove("oculto");
+console.log("no toco letra repetida. vuelve a ejecutar la funcion iniciar ruleta?")
+  if(btnADarle) {
+    if(!document.getElementById("btn-aDarle")){
+      contenedorGeneral.appendChild(btnADarle);
     }
+    btnADarle.classList.remove("oculto");
+  }
+console.log("el boton a darle no estaba.")
 
+mensaje.innerHTML = `
+<h4>Nueva letra! le damos?</h4>`
   letrasUsadas.push(letraActual);
   sessionStorage.setItem("letrasUsadas", JSON.stringify(letrasUsadas));
 }

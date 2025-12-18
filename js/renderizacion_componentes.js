@@ -20,8 +20,9 @@ btnRuleta.onclick = () => {
 // Detonante para iniciar la ruleta
 document.addEventListener("keyup", (e) => {
     if (e.key.toUpperCase() === "A" && !ruletaActiva){
-  iniciarRuleta();
-  btnBasta.classList.remove("oculto");
+        iniciarRuleta();
+      btnBasta.classList.remove("oculto");
+      btnADarle.classList.add("oculto");
     }
   })
 
@@ -118,11 +119,6 @@ inputs[0].focus();
 cuerpo.appendChild(fila);
  }
 crearFilaRespuestas();
-
-// ================================
-//              Ruleta
-// ================================
-
 
 
 // ============================
@@ -239,7 +235,6 @@ function mostrarResultados(resultados, nombreJugador, marcaTiempo){
   const btnNuevaRonda = contenedorGeneral.querySelector("#btn-nueva-ronda");
   btnNuevaRonda.addEventListener("click", () => {
     crearFilaRespuestas();
-    reiniciarRuleta();
     btnRuleta.classList.remove("oculto");
   })
 

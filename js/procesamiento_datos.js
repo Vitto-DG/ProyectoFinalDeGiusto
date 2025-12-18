@@ -100,6 +100,11 @@ function cotejarRespuesta(categoria, valorNormalizado, listasValidas) {
 // =================================
 //       Procesar respuestas
 // =================================
+
+/*
+Errores:
+1 - coteja las respuesta de forma literal o absoluta.
+tarta de atun =! TARTA ATÚN */
 async function procesarRespuestas(letraActual){
 
   let puntos = 0;
