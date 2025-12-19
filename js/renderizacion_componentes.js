@@ -104,7 +104,6 @@ for(const inp of inputs) {
 
       const siguiente = inputs[currentIndex + 1];
 
-
       if(currentIndex < inputs.length - 2){
         siguiente.focus();
       } else if (currentIndex === inputs.length - 2){
@@ -234,6 +233,7 @@ function mostrarResultados(resultados, nombreJugador, marcaTiempo){
 
   const btnNuevaRonda = contenedorGeneral.querySelector("#btn-nueva-ronda");
   btnNuevaRonda.addEventListener("click", () => {
+    contenedorGeneral.classList.add("oculto");
     crearFilaRespuestas();
     btnRuleta.classList.remove("oculto");
   })
