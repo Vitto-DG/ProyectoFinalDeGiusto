@@ -20,10 +20,12 @@ btnRuleta.onclick = () => {
   contenedorGeneral.classList.remove("oculto")
   btnRuleta.classList.add("oculto");
 }
-// Detonante para iniciar la ruleta
+// Disparador para iniciar la ruleta
 document.addEventListener("keyup", (e) => {
     if (e.key.toUpperCase() === "A" && !ruletaActiva){
-        iniciarRuleta();
+      iniciarRuleta();
+      /* contenedorGeneral.innerHTML = `
+      <h4>La ruleta está girando...</h4><button id="btn-basta">Basta!</button>`; */
       btnBasta.classList.remove("oculto");
       btnADarle.classList.add("oculto");
     }

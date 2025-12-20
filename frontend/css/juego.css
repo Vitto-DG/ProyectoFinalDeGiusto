@@ -1,6 +1,7 @@
 body {
   font-family: Arial;
   background-color: rgb(252, 168, 120);
+  background-image: url(../assets/backgrndScores.jpg);
 }
 
 .oculto {
@@ -12,7 +13,7 @@ h1{
   text-align: center;
   margin-top: 5px;
   margin-bottom: 1px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .hoja{
@@ -20,7 +21,7 @@ h1{
   width: 90%;
   max-width: 900px;
   margin: 20px auto;
-  border: 1px solid rgb(255, 0, 0);
+  /* border: 1px solid rgb(255, 0, 0); */
   line-height: 0;
   overflow: visible;
 }
@@ -34,9 +35,9 @@ h1{
   display: block;
   transform-origin: center center;
   filter: brightness(120%);
-  opacity: 80%;
+  opacity: 90%;
   z-index: 1;
-  border: 1px solid rgb(22, 5, 255);
+  /* border: 1px solid rgb(22, 5, 255); */
 }
 
 #tabla-categorias {
