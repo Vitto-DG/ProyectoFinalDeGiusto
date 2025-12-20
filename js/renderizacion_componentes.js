@@ -1,3 +1,6 @@
+// Errores vie 19 dic 11.27:
+// 1 - Al tocar "Nueva Ronda" despues de ver la tabla resultados, la ruleta aparece girado.
+// 2 - Luego de mostrar los resultados de la ronda, tocamos el boton ruleta y vuelve a aparecer el contenedor general con la informacion de la ronda anterior.
 
 // Traigo los elementos desde el HTML
 let letraRuleta = document.getElementById("letra-ruleta");
@@ -32,11 +35,11 @@ document.addEventListener("keyup", (e) => {
 // =======================================
 const tablaCategorias = [
   "Letra",
-   "Nombre",
+   "Nombres",
     "Ciudades/\nPaises",
     "Animales",
      "Flores",
-      "Comida",
+      "Comidas",
        "Frutas y\n verduras",
         "Colores",
          "Marcas",

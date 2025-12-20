@@ -32,6 +32,7 @@ function iniciarRuleta(){
     index = (index + 1) % abecedario.length;
   }, 50)
 
+  console.log("Ruleta iniciada o ruleta para nueva ronda")
 };
 
   btnADarle.onclick = () => {
@@ -53,6 +54,7 @@ btnBasta.onclick = () => {
   detenerRuleta();
   btnBasta.classList.add("oculto");
   contenedorGeneral.appendChild(btnADarle);
+
 };
 
 // =================================
