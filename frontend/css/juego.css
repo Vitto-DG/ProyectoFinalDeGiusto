@@ -43,8 +43,8 @@ h1{
   position: absolute;
   z-index: 10;
   top: 4%;
-  left: 5%;
-  width: 90%;
+  left: 0;
+  width: 100%;
   max-width: 900px;
   margin: 0;
   /* border: 1px solid yellow; */
