@@ -1,6 +1,10 @@
 // Errores vie 19 dic 11.27:
 // 1 - Al tocar "Nueva Ronda" despues de ver la tabla resultados, la ruleta aparece girado.
+// se ejecuta el boton nueva ronda, se agrega una nueva linea de inputs, se oculta el contenedor y se muestra el boton sulera. Se presiona el boton ruleta y vuelve a aprecer el contenedor con los datos de la ronda anterior.
+
 // 2 - Luego de mostrar los resultados de la ronda, tocamos el boton ruleta y vuelve a aparecer el contenedor general con la informacion de la ronda anterior.
+
+// 3 - Solo pueden caber 16 rondas en la hoja del juego. Agregar limite.
 
 // Traigo los elementos desde el HTML
 let letraRuleta = document.getElementById("letra-ruleta");
@@ -17,19 +21,20 @@ pantalla.appendChild(btnRuleta);
 let letrasUsadas = JSON.parse(sessionStorage.getItem('letrasUsadas')) || [];
 
 btnRuleta.onclick = () => {
-  contenedorGeneral.classList.remove("oculto")
+  limpiarContenedor();
+  contenedorGeneral.classList.remove("oculto");
   btnRuleta.classList.add("oculto");
 }
 // Disparador para iniciar la ruleta
 document.addEventListener("keyup", (e) => {
+  if(e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
     if (e.key.toUpperCase() === "A" && !ruletaActiva){
       iniciarRuleta();
-      /* contenedorGeneral.innerHTML = `
-      <h4>La ruleta está girando...</h4><button id="btn-basta">Basta!</button>`; */
       btnBasta.classList.remove("oculto");
-      btnADarle.classList.add("oculto");
+      if(typeof btnADarle !== 'undefined') btnADarle.classList.add("oculto");
     }
   })
+
 
 
 // =======================================
@@ -47,7 +52,6 @@ const tablaCategorias = [
          "Marcas",
           "TV y Cine",
            "Total"];
-
 
 // =======================================
 //            Encabezados
@@ -68,7 +72,6 @@ function crearEncabezados(){
   encabezado.appendChild(filaCategorias);
 }
  crearEncabezados(tablaCategorias);
-
 
 // ===================================
 // Crear nuevas filas para cada ronda
@@ -123,7 +126,6 @@ inputs[0].focus();
 cuerpo.appendChild(fila);
  }
 crearFilaRespuestas();
-
 
 // ============================
 //      Cuenta regresiva .
@@ -207,14 +209,13 @@ function nombreJugador(resultados, marcaTiempo){
   });
 };
 
-
-
-
 // =================================
 //          Mostrar Resultados
 // =================================
 function mostrarResultados(resultados, nombreJugador, marcaTiempo){
+if(puntajes.length > 1) {
 
+}
   const ronda = {
     jugador: nombreJugador,
     letra: resultados.letra,
@@ -238,8 +239,9 @@ function mostrarResultados(resultados, nombreJugador, marcaTiempo){
 
   const btnNuevaRonda = contenedorGeneral.querySelector("#btn-nueva-ronda");
   btnNuevaRonda.addEventListener("click", () => {
-    contenedorGeneral.classList.add("oculto");
     crearFilaRespuestas();
+    reiniciarRuleta();
+    contenedorGeneral.classList.add("oculto");
     btnRuleta.classList.remove("oculto");
   })
 
@@ -251,6 +253,25 @@ function mostrarResultados(resultados, nombreJugador, marcaTiempo){
     console.log("mostrar resultados ejecutada");
 }
 
+function limpiarContenedor() {
+  contenedorGeneral.innerHTML = `
+  <h3 id="presiona-tecla">Presiona A para comenzar</h3>
+  <div id="letra-ruleta">A</div>
+  <button id="btn-basta" class="oculto">Basta!</button>`;
+
+  letraRuleta = document.getElementById("letra-ruleta");
+  mensaje = document.getElementById("presiona-tecla");
+  btnBasta = document.getElementById("btn-basta");
+
+  btnBasta.onclick = () => {
+  detenerRuleta();
+  btnBasta.classList.add("oculto");
+  contenedorGeneral.appendChild(btnADarle);
+
+};
+
+  if(btnADarle) btnADarle.classList.add("oculto");
+}
 
 // Cuestiones:
 
@@ -261,4 +282,6 @@ function mostrarResultados(resultados, nombreJugador, marcaTiempo){
 // Pero quizas comience utilizando las APIs en tiempo real. DONE
 // 6 - Librerias
 // 7 - Estilos CSS
+// 8 - Quiero que a partir de la segunda ronda, se cree un boton para ver la tabla de posiciones.
+
 

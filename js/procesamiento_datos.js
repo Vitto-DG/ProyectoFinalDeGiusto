@@ -1,5 +1,7 @@
 // Aqui ira la funcion de procesar resupuestas.
 // Y tabla de posiciones.
+// La tabla de puntajes deberia de entrar en la pantalla siempre.
+// se complica con 15 posiciones.
 
 
 // =================================
@@ -214,7 +216,7 @@ console.log("tabla puntajes ejecutada");
   btnNuevaRonda.addEventListener("click", () => {
     crearFilaRespuestas();
     reiniciarRuleta();
-    contenedorGeneral.classList.remove("oculto");
+    contenedorGeneral.classList.add("oculto");
     btnRuleta.classList.remove("oculto");
   })
 }

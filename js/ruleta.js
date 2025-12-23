@@ -1,13 +1,17 @@
+// Tenemos un problemon con las letras.
+
 let ruletaActiva = false;
 let letraActual = "";
 let intervaloRuleta = null;
 
-const mensaje = document.getElementById("presiona-tecla");
+mensaje = document.getElementById("presiona-tecla");
 const abecedario = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'.split("");
+
 const btnADarle = document.createElement('button');
 btnADarle.innerHTML = 'A darle!';
       btnADarle.id = "btn-aDarle";
-const btnBasta = document.getElementById("btn-basta");
+
+let btnBasta = document.getElementById("btn-basta");
 const letra = document.createElement('div');
   letra.innerHTML = '<p id="letra-display">A</p>'
   letraRuleta.appendChild(letra);
@@ -50,12 +54,12 @@ function visibilidad(elemento, mostrar){
   elemento.classList.toggle("oculto", mostrar);
 }
 
-btnBasta.onclick = () => {
+/* btnBasta.onclick = () => {
   detenerRuleta();
   btnBasta.classList.add("oculto");
   contenedorGeneral.appendChild(btnADarle);
 
-};
+}; */
 
 // =================================
 //      Detener Ruleta
@@ -102,6 +106,8 @@ mensaje.innerHTML = `
 function reiniciarRuleta(){
   ruletaActiva = false;
   letraActual = "";
+  clearInterval(intervaloRuleta);
+  intervaloRuleta = null;
 
 if(contenedorGeneral){
   contenedorGeneral.innerHTML =
@@ -115,10 +121,9 @@ if(contenedorGeneral){
 
   // recapturamos los elementos
   letraRuleta = document.getElementById("letra-ruleta");
-  const btnBastaLocal = document.getElementById("btn-basta");
-if(btnBastaLocal){
+  btnBasta = document.getElementById("btn-basta");
+if(btnBasta){
   btnBastaLocal.onclick = detenerRuleta;
 }
-
   console.log("reiniciar ruleta ejecutada", contenedorGeneral);
 }
