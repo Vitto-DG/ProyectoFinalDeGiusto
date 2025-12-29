@@ -163,7 +163,7 @@ function bastaParaMi(){
   marcaTiempo = Math.floor((relojOff - relojOn) / 1000);
 
   contenedorGeneral.innerHTML = `
-  <h3 class="mensaje-basta">Basta para mi, basta para todos!</h3>
+  <h3 class="mensaje-basta">Basta para mi,<br> basta para todos!</h3>
   <button id="btn-continuar">Continuar</button>`
   contenedorGeneral.classList.remove("oculto");
 
@@ -255,7 +255,7 @@ if(puntajes.length > 1) {
 
 function limpiarContenedor() {
   contenedorGeneral.innerHTML = `
-  <h3 id="presiona-tecla">Presiona A para comenzar (1b)</h3>
+  <h3 id="presiona-tecla">Presiona A para comenzar</h3>
   <div id="letra-ruleta">A</div>
   <button id="btn-basta" class="oculto">Basta!</button>`;
 

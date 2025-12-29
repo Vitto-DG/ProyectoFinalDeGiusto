@@ -17,7 +17,6 @@ const letra = document.createElement('div');
   letraRuleta.appendChild(letra);
 
 
-
 // ========================
 //    Iniciar Ruleta
 // ========================
@@ -105,7 +104,7 @@ function reiniciarRuleta(){
 
 if(contenedorGeneral){
   contenedorGeneral.innerHTML =
-  `<h3 id="presiona-tecla">Presiona la tecla A para comenzar (3)</h3>
+  `<h3 id="presiona-tecla">Presiona la tecla A para comenzar</h3>
     <div id="letra-ruleta">
     <p id="letra-display">A</p>
     </div>
@@ -120,9 +119,10 @@ if(contenedorGeneral){
   detenerRuleta();
   btnBasta.classList.add("oculto");
   contenedorGeneral.appendChild(btnADarle);
-};
-if(btnBasta){
-  btnBastaLocal.onclick = detenerRuleta;
-}
+  if(btnBasta){
+    btnBastaLocal.onclick = detenerRuleta;
+  }
   console.log("reiniciar ruleta ejecutada", contenedorGeneral);
 }
+};
+
