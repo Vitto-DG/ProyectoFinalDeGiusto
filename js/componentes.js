@@ -255,7 +255,7 @@ if(puntajes.length > 1) {
 
 function limpiarContenedor() {
   contenedorGeneral.innerHTML = `
-  <h3 id="presiona-tecla">Presiona A para comenzar</h3>
+  <h3 id="presiona-tecla">Presiona A para comenzar (1b)</h3>
   <div id="letra-ruleta">A</div>
   <button id="btn-basta" class="oculto">Basta!</button>`;
 
@@ -267,7 +267,6 @@ function limpiarContenedor() {
   detenerRuleta();
   btnBasta.classList.add("oculto");
   contenedorGeneral.appendChild(btnADarle);
-
 };
 
   if(btnADarle) btnADarle.classList.add("oculto");

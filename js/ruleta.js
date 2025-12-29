@@ -54,13 +54,6 @@ function visibilidad(elemento, mostrar){
   elemento.classList.toggle("oculto", mostrar);
 }
 
-/* btnBasta.onclick = () => {
-  detenerRuleta();
-  btnBasta.classList.add("oculto");
-  contenedorGeneral.appendChild(btnADarle);
-
-}; */
-
 // =================================
 //      Detener Ruleta
 // =================================
@@ -94,6 +87,7 @@ console.log("el boton a darle no estaba.")
 
 mensaje.innerHTML = `
 <h4>Nueva letra! le damos?</h4>`
+btnADarle.classList.remove("oculto");
   letrasUsadas.push(letraActual);
   sessionStorage.setItem("letrasUsadas", JSON.stringify(letrasUsadas));
 }
@@ -111,17 +105,22 @@ function reiniciarRuleta(){
 
 if(contenedorGeneral){
   contenedorGeneral.innerHTML =
-  `<h3 id="presiona-tecla">Presiona la tecla A para comenzar</h3>
+  `<h3 id="presiona-tecla">Presiona la tecla A para comenzar (3)</h3>
     <div id="letra-ruleta">
     <p id="letra-display">A</p>
     </div>
     <button id="btn-basta" class="oculto">Basta!</button>`;
-
 }
 
   // recapturamos los elementos
   letraRuleta = document.getElementById("letra-ruleta");
   btnBasta = document.getElementById("btn-basta");
+
+  btnBasta.onclick = () => {
+  detenerRuleta();
+  btnBasta.classList.add("oculto");
+  contenedorGeneral.appendChild(btnADarle);
+};
 if(btnBasta){
   btnBastaLocal.onclick = detenerRuleta;
 }
